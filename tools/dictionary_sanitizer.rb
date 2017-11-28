@@ -20,18 +20,14 @@ OptionParser.new do |opts|
   end
 
   opts.on("-f", "--file [file_path]", "Path of the input dictionary") do |f|
-    if not f
-      p opts.help()
-      abort()
-    end
-
     options[:input] = f
   end
 
-  options[:length] = 4 if not options[:length]
-  options[:output] = 'sanitized.txt' if not options[:output]
+  options[:length] = 4 unless options[:length]
+  options[:output] = 'sanitized.txt' unless options[:output]
 end.parse!
 
+raise OptionParser::MissingArgument.new('-f parameter is mandatory. Run dictionary_sanitizer -h to more info.') unless options[:input]
 output = File.open(options[:output], "w")
 input_lines = File.readlines(options[:input])
 
@@ -43,9 +39,9 @@ input_lines.each do |word|
   word_only_has_letters = word[/[A-Za-z]+/] == word
   word_has_duplicated_chars = word.each_char.find { |c| word.count(c) > 1 } != nil
 
-  next if not word_only_has_letters
-  next if not word.length == options[:length] 
-  next if options[:remove_words_with_duplicated_chars] and word_has_duplicated_chars  
+  next unless word_only_has_letters
+  next unless word.length == options[:length] 
+  next if options[:remove_words_with_duplicated_chars] and word_has_duplicated_chars
 
   output.puts(word)
 end
