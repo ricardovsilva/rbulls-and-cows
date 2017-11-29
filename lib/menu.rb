@@ -19,7 +19,7 @@ class Menu
 
 	def ask_for_key_to_continue
 		puts "Press any key to continue..."
-		STDIN.getch
+		STDIN.getc
 	end
 
 	def show_options
@@ -32,6 +32,42 @@ class Menu
 				}
 				menu.choice("Play") { return :play }
 		end
+	end
+
+	def say_a_word(word)
+		puts "Hmmm. Have you though was #{word}?"
+		@cli.choose do |menu|
+			menu.choice("Yes") { return true }
+			menu.choice("No") { return false }
+		end
+	end
+
+	def ask_for_a_word
+		puts "I really don't know what is your word. No idea, promise!"
+		puts "But I love to learn new words"
+		new_word = @cli.ask "Can you tell me what was your word? I promise that I will never forget."
+		return new_word
+	end
+
+	def show_thanks
+		puts "Thank you to play with me. Was really really fun!"
+		puts "If you want see how I work, take a look at https://github.com/ricardovsilva/rbulls-and-cows"
+		puts "Also, if you want know more about my creator, or play any game with he, take a look at http://ricardovsilva.github.io"
+	end
+
+	def ask_for_bulls_and_cows
+		puts "Oh, ok =/"
+		cows = @cli.ask("How many cows it has (press enter for zero)?", Integer) do |q| 
+			q.in = 0..4 
+			q.default = 0
+		end
+		
+		bulls = @cli.ask("And how many bulls it has (press enter for zero)?", Integer) do |q| 
+			q.in = 0..4 
+			q.default = 0
+		end
+
+		return {bulls: bulls, cows: cows}
 	end
 
 	def show_the_rules
