@@ -1,5 +1,6 @@
 require_relative 'lib/menu'
 require_relative 'lib/guesser'
+require_relative 'lib/word_picker'
 
 DICTIONARY_PATH = 'dictionaries/sanitized-dictionary.txt'
 
@@ -12,7 +13,7 @@ puts "Ok, think in a english word, with four letters and without repeated charac
 menu.ask_for_key_to_continue
 menu.clear_screen
 
-guesser = Guesser.new(DICTIONARY_PATH)
+guesser = Guesser.new(WordPicker.new DICTIONARY_PATH)
 word = guesser.get_word
 is_correct = menu.say_a_word word
 
