@@ -34,3 +34,18 @@ Run bundler to install all necessary dependencies:
 
 With all installed, run tests to ensure that code that you downloaded works (no one test should fail):
 > $ rake
+
+Now is time to start game:
+> $ ruby game.rb
+
+Enjoy!
+
+## Changing language of guesser
+Guesser looks to a file named sanitized-dictionary.txt, it's inside dictionaries folder. You can put any file, at any language, inside that folder with that name. But, that file should contains one word per line and only words with four unique letters, and I know, it would be very laborious to do this.
+
+For that purpose, I developed a script that will receive an input text file with words and sanitize that for you. For more details run:
+> $ ruby tools/dictionary_sanitizer.rb -h
+
+An usage example is:
+> $ ruby tools/dictionary_sanitizer.rb -f dictionaries/english-words-full.txt -o dictionaries/sanitized-dictionary.txt -rtrue
+
