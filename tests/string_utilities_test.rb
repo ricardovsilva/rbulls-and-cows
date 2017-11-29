@@ -1,5 +1,5 @@
 require 'test/unit'
-require '../lib/utilities/string_utilities'
+require_relative '../lib/utilities/string_utilities'
 
 class StringUtilitiesTest < Test::Unit::TestCase
   def test_intersection_chars__strings_with_two_chars_in_common__should_return_array_with_two_chars
