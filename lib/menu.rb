@@ -7,7 +7,7 @@ class Menu
 	end
 
 	def show_greetings
-		puts "Hello! And welcome to Bulls and Cows!"
+		puts "Hello! And welcome to RBulls and Cows!"
 		puts "My name is Waltz, and I will be your second player."
 
 		ask_for_key_to_continue
@@ -35,7 +35,7 @@ class Menu
 	end
 
 	def say_a_word(word)
-		puts "Hmmm. The word you though was #{word}?"
+		puts "Hmmm. The word you thought was #{word}?"
 		@cli.choose do |menu|
 			menu.choice("Yes") { return true }
 			menu.choice("No") { return false }
@@ -50,9 +50,9 @@ class Menu
 	end
 
 	def show_thanks
-		puts "Thank you to play with me. Was really really fun!"
+		puts "Thank you to play with me. It was really really fun!"
 		puts "If you want see how I work, take a look at https://github.com/ricardovsilva/rbulls-and-cows"
-		puts "Also, if you want know more about my creator, or play any game with he, take a look at http://ricardovsilva.github.io"
+		puts "Also, if you want know more about my creator, or play any game with him, take a look at http://ricardovsilva.github.io"
 	end
 
 	def ask_for_bulls_and_cows
@@ -74,7 +74,7 @@ class Menu
 		puts 'The rules are really really simple.'
 		puts 'You should think in a word in english with exactly 4 letters.'
 		puts 'Also, these word cannot have any repeated letter. And I will try to guess what word are you thinking.'
-		puts 'When I tell you some word, you should tell me how many bulls and cows are in that word.'
+		puts 'When I tell you this word, you should tell me how many bulls and cows are in that word.'
 		puts "Whaaaaaaaaaat? Cows? Bulls? Don't be afraid, as I said, it's simple."
 		puts "Cow represents a correct letter, but at wrong place."
 		puts "And bulls represents a correct letter, at the right place."
