@@ -9,7 +9,6 @@ class GuesserTest < Test::Unit::TestCase
 
   def test_get_word__first_word__should_return_word_with_most_common_letter
     target = @guesser.get_word
-    require 'byebug'
     assert_equal(1, target.count('E'))
   end
 
