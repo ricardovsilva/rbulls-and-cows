@@ -1,5 +1,5 @@
-require './lib/menu'
-require './lib/guesser'
+require_relative 'lib/menu'
+require_relative 'lib/guesser'
 
 DICTIONARY_PATH = 'dictionaries/sanitized-dictionary.txt'
 
@@ -33,5 +33,3 @@ end
 menu.clear_screen
 menu.show_thanks
 menu.ask_for_key_to_continue
-
-AFGR

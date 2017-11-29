@@ -35,7 +35,7 @@ class Menu
 	end
 
 	def say_a_word(word)
-		puts "Hmmm. Have you though was #{word}?"
+		puts "Hmmm. The word you though was #{word}?"
 		@cli.choose do |menu|
 			menu.choice("Yes") { return true }
 			menu.choice("No") { return false }
